@@ -38,7 +38,7 @@ export default function reducer(state, action) {
 
         case 'edit_classes':
             let updatedClasses = state.classes.map(c => {
-                if (c.id == action.payload.id) {
+                if (c.id === action.payload.id) {
                     return action.payload;
                 }
                 return c;
