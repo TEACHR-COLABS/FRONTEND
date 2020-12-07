@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import 'semantic-ui-css/semantic.min.css';
+import React, { useState, useEffect } from "react";
+import "semantic-ui-css/semantic.min.css";
 
 //Components
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
@@ -7,7 +7,6 @@ import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 // import {
 //   NavBar,
 //   SignUp,
-//   Header,
 //   LogIn,
 //   OnboardingComplete,
 //   AccountSettingsForm
@@ -19,31 +18,30 @@ import { useStateValue } from "../../state";
 //Styled Components CSS
 
 //Scenes
-// import UserAccount from '../User';
-// import AllCandidates from '../AllCandidates';
-// import AllPrisons from '../AllPrisons';
-// import PrisonProfile from '../Prison';
-// import LoginSignup from '../LoginSignup';
+// import UserAccount from '../Main';
+import LoginSignup from '../LoginSignup';
 // import Onboarding from '../Onboarding';
-// import Home from '../Home';
 
 const App = () => {
-    const [{ user }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
-    useEffect(() => {
-        if (window.localStorage.getItem('user')) {
-            dispatch({
-                type: 'set_user',
-                payload: JSON.parse(window.localStorage.getItem('user')),
-            });
-        }
-    }, []);
+  useEffect(() => {
+    if (window.localStorage.getItem("user")) {
+      dispatch({
+        type: "set_user",
+        payload: JSON.parse(window.localStorage.getItem("user")),
+      });
+    }
+  }, []);
 
-    return (
-        <BrowserRouter>
-            {/* <NavBar>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
+  return (
+    <BrowserRouter>
+      {/* <NavBar> */}
+        <Switch>
+          <Route exact path="/" component={LoginSignup} />
+        </Switch>
+      {/* </NavBar> */}
+      {/* 
                         <PrivateRoute
                             path="/me"
                             component={UserAccount}
@@ -62,10 +60,9 @@ const App = () => {
                         />
                         <Route exact path="/prisons" component={AllPrisons} />
                         <Route path="/:prison" component={PrisonProfile} />
-                    </Switch>
-            </NavBar> */}
-        </BrowserRouter>
-    );
+                     */}
+    </BrowserRouter>
+  );
 };
 
 export default App;
