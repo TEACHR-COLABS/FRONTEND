@@ -41,7 +41,7 @@ const App = ({
             <p>First Name</p>
           </strong>
           <Field
-            type="name"
+            type="text"
             name="firstName"
             placeholder="First Name"
             value={values.firstName}
@@ -52,7 +52,7 @@ const App = ({
             <p>Last Name</p>
           </strong>
           <Field
-            type="name"
+            type="text"
             name="lastName"
             placeholder="Last Name"
             value={values.lastName}
@@ -103,16 +103,16 @@ const App = ({
 
         <div>
           <strong>
-            <p>Last Name</p>
+            <p>School</p>
           </strong>
           <Field
-            type="name"
-            name="lastName"
-            placeholder="Last Name"
-            value={values.lastName}
+            type="text"
+            name="school"
+            placeholder="School"
+            value={values.school}
           />
         </div>
-        
+
       </Stretch>
       <SemanticForm.Button content="Sign Up" color="green" />
     </SemanticForm>
@@ -137,15 +137,20 @@ Yup.addMethod(Yup.string, "equalTo", equalTo);
 //Initial values, Handle validation, Submission
 //HOC created to conect to our App component
 const SignUp = withFormik({
-  mapPropsToValues({ email, password, passwordConfirm }) {
+  mapPropsToValues({ firstName, lastName, email, password, passwordConfirm, school }) {
     return {
+      firstName: firstName || "",
+      lastName: lastName || "",
       email: email || "",
       password: password || "",
       passwordConfirm: passwordConfirm || "",
+      school: school || "",
     };
   },
 
   validationSchema: Yup.object().shape({
+    firstName: Yup.string().required(),
+    lastName: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().min(8).required(),
     passwordConfirm: Yup.string()
@@ -160,7 +165,8 @@ const SignUp = withFormik({
     console.log(props);
     setSubmitting(true);
     axios
-      .post("https://teachr-back-end.herokuapp.com/api/auth/register", {
+      // .post("https://teachr-back-end.herokuapp.com/api/auth/register", {
+        .post("http://localhost:8000/api/auth/register", {
         email: values.email,
         password: values.password,
       })
@@ -174,7 +180,7 @@ const SignUp = withFormik({
           type: "set_user",
           payload: response.data,
         });
-        // props.history.push('/onboarding');
+        props.history.push('/onboarding');
       })
       .catch((error) => {
         console.log(error.response);

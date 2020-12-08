@@ -25,7 +25,6 @@ const LoginSignup = () => {
         <ColumnContainer>
             <Header
                 justify="center"
-                title={`Regain believes in every prisoner's future. \n Thank you for helping!`}
                 size="3em"
             />
             <ColumnContainer align="center">

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import styled from 'styled-components';
@@ -76,6 +77,7 @@ const Login = ({
                 color="blue"
                 style={{ marginTop: 5 }}
             />
+            <p>No account? <a href="#">Sign up here</a></p>
         </SemanticForm>
     );
 };
@@ -107,7 +109,8 @@ const LogIn = withFormik({
         console.log(props);
         axios
             .post(
-                'https://teachr-back-end.herokuapp.com/api/auth/login',
+                'http://localhost:8000/api/auth/login',
+                // 'https://teachr-back-end.herokuapp.com/api/auth/login',
                 { email: values.email, password: values.password }
             )
             .then(response => {
