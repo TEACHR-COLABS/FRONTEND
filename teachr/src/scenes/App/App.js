@@ -52,11 +52,6 @@ const App = () => {
                             path="/onboarding"
                             component={Onboarding}
                         />
-                        {/* <Route
-                            exact
-                            path="/candidates"
-                            component={AllCandidates}
-                        /> */}
                     </Switch>
                 )}
     </BrowserRouter>

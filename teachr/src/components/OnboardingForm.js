@@ -49,106 +49,34 @@ const App = ({
         //Profile onboarding adn styling
         <SemanticForm as={Form} onSubmit={handleSubmit}>
             <StyledForm>
-                <div>
-                    <h2>Tell Us More About Your Prison!</h2>
-                    <p>
-                        <strong>Prison name</strong>
-                    </p>
-                    {touched.name && errors.name && <p>{errors.name}</p>}
-                    <Field
-                        name="name"
-                        format="name"
-                        placeholder="Prison name"
-                        value={values.name}
-                    />
-                </div>
-                <div>
-                    <p>
-                        <strong>Phone Number</strong>
-                    </p>
-                    {touched.phone && errors.phone && <p>{errors.phone}</p>}
-                    <Field
-                        name="phone"
-                        format="phone-us"
-                        placeholder="Phone nos(555) 555-1230"
-                        value={values.tel}
-                    />
-                </div>
-                <div>
-                    <p>
-                        <strong>City</strong>
-                    </p>
-                    {touched.city && errors.city && <p>{errors.city}</p>}
-                    <Field
-                        type="text"
-                        name="city"
-                        placeholder="City"
-                        value={values.city}
-                    />
-                </div>
-                <div>
-                    <p>
-                        <strong>State</strong>
-                    </p>
-                    <Field component="select" name="selectOption">
-                        <option>Select State</option>
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">Arizona</option>
-                        <option value="AR">Arkansas</option>
-                        <option value="CA">California</option>
-                        <option value="CO">Colorado</option>
-                        <option value="CT">Connecticut</option>
-                        <option value="DE">Delaware</option>
-                        <option value="DC">District Of Columbia</option>
-                        <option value="FL">Florida</option>
-                        <option value="GA">Georgia</option>
-                        <option value="HI">Hawaii</option>
-                        <option value="ID">Idaho</option>
-                        <option value="IL">Illinois</option>
-                        <option value="IN">Indiana</option>
-                        <option value="IA">Iowa</option>
-                        <option value="KS">Kansas</option>
-                        <option value="KY">Kentucky</option>
-                        <option value="LA">Louisiana</option>
-                        <option value="ME">Maine</option>
-                        <option value="MD">Maryland</option>
-                        <option value="MA">Massachusetts</option>
-                        <option value="MI">Michigan</option>
-                        <option value="MN">Minnesota</option>
-                        <option value="MS">Mississippi</option>
-                        <option value="MO">Missouri</option>
-                        <option value="MT">Montana</option>
-                        <option value="NE">Nebraska</option>
-                        <option value="NV">Nevada</option>
-                        <option value="NH">New Hampshire</option>
-                        <option value="NJ">New Jersey</option>
-                        <option value="NM">New Mexico</option>
-                        <option value="NY">New York</option>
-                        <option value="NC">North Carolina</option>
-                        <option value="ND">North Dakota</option>
-                        <option value="OH">Ohio</option>
-                        <option value="OK">Oklahoma</option>
-                        <option value="OR">Oregon</option>
-                        <option value="PA">Pennsylvania</option>
-                        <option value="RI">Rhode Island</option>
-                        <option value="SC">South Carolina</option>
-                        <option value="SD">South Dakota</option>
-                        <option value="TN">Tennessee</option>
-                        <option value="TX">Texas</option>
-                        <option value="UT">Utah</option>
-                        <option value="VT">Vermont</option>
-                        <option value="VA">Virginia</option>
-                        <option value="WA">Washington</option>
-                        <option value="WV">West Virginia</option>
-                        <option value="WI">Wisconsin</option>
-                        <option value="WY">Wyoming</option>
-                    </Field>
-                </div>
-                <SemanticForm.Button type="submit" color="green">
-                    Finish!
-                </SemanticForm.Button>
-            </StyledForm>
+        <div>
+          <h2>
+            <strong>Assessment Type</strong>
+          </h2>
+          <Field component="select" name="selectOption">
+            <option>Select Assessment</option>
+            <option value="AL">Round Table Discussion</option>
+            <option value="AK">French Discussion</option>
+            <option value="AZ">Add an Assessment</option>
+          </Field>
+        </div>
+
+        <div>
+          <h2>
+            <strong>Group</strong>
+          </h2>
+          <Field component="select" name="selectOption">
+            <option>Select Group</option>
+            <option value="AL">Grade 11 English; Group 1</option>
+            <option value="AK">Grade 8 French; Group 2</option>
+            <option value="AZ">Full Class</option>
+            <option value="AR">Add a Group</option>
+          </Field>
+        </div>
+        <SemanticForm.Button type="submit" color="green">
+          Begin Assessment
+        </SemanticForm.Button>
+      </StyledForm>
         </SemanticForm>
     );
 };
