@@ -54,17 +54,6 @@ export default function reducer(state, action) {
                 classes: action.payload,
             };
         case 'delete_user':
-            axiosWithAuth()
-                .delete()
-                .then(res => console.log(res))
-                .catch(err => console.log(err));
-
-            window.localStorage.removeItem('user');
-
-            return {
-                state: {},
-            };
-        case 'delete_user':
             console.log('Inside case delete');
             axiosWithAuth()
                 .delete(`/classes/${action.payload}`)

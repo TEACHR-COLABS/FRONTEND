@@ -5,11 +5,9 @@ import "semantic-ui-css/semantic.min.css";
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 //Custom Components
 // import {
-//   NavBar,
 //   SignUp,
 //   LogIn,
-//   OnboardingComplete,
-//   AccountSettingsForm
+//   OnboardingComplete
 // } from "../../components";
 
 //State
@@ -18,12 +16,13 @@ import { useStateValue } from "../../state";
 //Styled Components CSS
 
 //Scenes
-// import UserAccount from '../Main';
+import UserAccount from '../User';
 import LoginSignup from '../LoginSignup';
-// import Onboarding from '../Onboarding';
+import Onboarding from '../Onboarding';
 
 const App = () => {
   const [{ user }, dispatch] = useStateValue();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (window.localStorage.getItem("user")) {
@@ -32,16 +31,16 @@ const App = () => {
         payload: JSON.parse(window.localStorage.getItem("user")),
       });
     }
+    setLoading(false);
   }, []);
 
   return (
     <BrowserRouter>
-      {/* <NavBar> */}
-        <Switch>
-          <Route exact path="/" component={LoginSignup} />
-        </Switch>
-      {/* </NavBar> */}
-      {/* 
+        {loading ? (
+                    <h1>Loading</h1>
+                ) : (
+                    <Switch>
+                      <Route exact path="/" component={LoginSignup} />
                         <PrivateRoute
                             path="/me"
                             component={UserAccount}
@@ -53,27 +52,21 @@ const App = () => {
                             path="/onboarding"
                             component={Onboarding}
                         />
-                        <Route
-                            exact
-                            path="/candidates"
-                            component={AllCandidates}
-                        />
-                        <Route exact path="/prisons" component={AllPrisons} />
-                        <Route path="/:prison" component={PrisonProfile} />
-                     */}
+                    </Switch>
+                )}
     </BrowserRouter>
   );
 };
 
 export default App;
 
-// const PrivateRoute = ({ user, component: Component, ...rest }) => {
-//     return (
-//         <Route
-//             {...rest}
-//             render={props =>
-//                 user.token ? <Component {...props} /> : <Redirect to="/login" />
-//             }
-//         />
-//     );
-// };
+const PrivateRoute = ({ user, component: Component, ...rest }) => {
+    return (
+        <Route
+            {...rest}
+            render={props =>
+                user.token ? <Component {...props} /> : <Redirect to="/login" />
+            }
+        />
+    );
+};
