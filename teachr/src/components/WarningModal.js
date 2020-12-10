@@ -34,7 +34,7 @@ const WarningModal = ({ id, name }) => {
                     color="red"
                     onClick={() => {
                         dispatch({
-                            type: 'delete_candidate',
+                            type: 'delete_class',
                             payload: id,
                         });
                         setOpen(false);

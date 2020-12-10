@@ -65,7 +65,7 @@ const App = ({
           <h2>
             <strong>Group</strong>
           </h2>
-          <Field component="select" name="selectOption">
+          <Field component="select" name="selectGroup">
             <option>Select Group</option>
             <option value="AL">Grade 11 English; Group 1</option>
             <option value="AK">Grade 8 French; Group 2</option>
@@ -82,24 +82,16 @@ const App = ({
 };
 
 const OnboardingForm = withFormik({
-    mapPropsToValues({ name, phone, city, selectOption }) {
+    mapPropsToValues({ selectOption, selectGroup }) {
         return {
-            name: name || '',
-            phone: phone || '',
-            city: city || '',
+            selectGroup: selectGroup || '',
             selectOption: selectOption || '',
         };
     },
 
     validationSchema: Yup.object().shape({
-        name: Yup.string()
-            .min(5)
-            .required('Full name is required'),
-        phone: Yup.string()
-            .min(5)
-            .required('Phone number is required'),
-        city: Yup.string().required('City is required'),
-        selectOption: Yup.string().required('State is required'),
+        selectOption: Yup.string().required('Assessment type is required'),
+        selectGroup: Yup.string().required('Assessment group is required'),
     }),
 
     handleSubmit(values, { props, setEffect }) {
@@ -107,11 +99,8 @@ const OnboardingForm = withFormik({
         console.log(props);
         axiosWithAuth()
             .put('/profile', {
-                email: props.state.user.email,
-                name: values.name,
-                city: values.city,
-                state: values.selectOption,
-                phone: values.phone,
+                className: values.selectOption,
+                classSubject: values.selectGroup
             })
             .then(response => {
                 props.dispatch({

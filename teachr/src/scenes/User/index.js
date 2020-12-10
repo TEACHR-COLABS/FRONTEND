@@ -19,7 +19,7 @@ import Settings from './Settings';
 
 const UserAccount = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
-    const [{ user, candidates }, dispatch] = useStateValue();
+    const [{ user, classes }, dispatch] = useStateValue();
 
     //Redirect to onboarding if profile is incomplete
     if (!user.profileComplete) {
@@ -28,19 +28,17 @@ const UserAccount = ({ history }) => {
 
     useEffect(() => {
         setIsLoading(true);
-        //let prisonId = location.pathname;
-        //let url = `api/prions/${prisonId}`;
-        if (!candidates || candidates.length == 0) {
-            let url = `https://lsbw-liberated-skills.herokuapp.com/api/centers/${user.id}`;
+        if (!classes || classes.length === 0) {
+            let url = `http://localhost:3000/api/users/${user.id}`;
             axios
                 .get(url)
                 .then(res => {
                     if (res.status !== 200) {
-                        throw new Error('did not fetch all prisons');
+                        throw new Error('did not fetch all users');
                     }
                     console.log(res);
                     dispatch({
-                        type: 'set_user_candidates',
+                        type: 'set_user_classes',
                         payload: res.data.persons,
                     });
                     dispatch({
@@ -65,7 +63,7 @@ const UserAccount = ({ history }) => {
                 <>
                     <Header
                         backButton
-                        title={user.name}
+                        title={user.firstName}
                         subtitle={
                             <Link
                                 to="/me/settings"
