@@ -11,10 +11,53 @@ import { ComponentWithState, withState } from '../../state';
 const Stretch = styled.div`
     display: flex;
     flex-direction: column;
-    width: 345px;
-    margin-bottom: 5px;
+    align-items:center;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    background:#83C5BE;
+    color:#fbfbfb;
+    font-family: 'Montserrat', sans-serif;
+    margin: 10px 0 10px 0 ;
     p {
-        margin-top: 15px;
+        /*margin: 10px;*/
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    a {
+        color:#fbfbfb;
+        text-decoration: underline;
+    }
+
+    h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom:10px;
+    }
+
+    .input{
+        height: 44px;
+        width: 300px;
+        border-radius: 10px;
+        border-style:none;
+        background: #fbfbfb;
+    }
+
+    .button{
+        background: #DC8744;
+        color:#fbfbfb;
+        border-style: none;
+        border-radius: 100px;
+        height: 40px;
+        width:230px;
+        margin: 10px 0 0px 0;
+    }
+
+    .button:hover{
+        background: #b06225;
+        color:#fbfbfb;
     }
 `;
 
@@ -43,41 +86,51 @@ const Login = ({
             {errors.global && <p>{errors.global}</p>}
             <Stretch>
                 <div>
-                    <h2>Login</h2>
-                    <strong>
-                        <p>Email</p>
-                    </strong>
+                        <h3>Email</h3>
                     {touched.email && errors.email && <p>{errors.email}</p>}
                     <Field
                         type="email"
                         name="email"
-                        placeholder="email@.com"
+                        placeholder="Enter email address"
                         value={values.email}
+                        style={{
+                            width:'300px',
+                            borderStyle:'none',
+                            borderRadius:'10px',
+                            background:'rgb(251, 251, 251)',
+                            marginBottom:'30px'
+                        }}
                     />
                 </div>
 
                 <div>
-                    <strong>
-                        <p>Password</p>
-                    </strong>
+                        <h3>Password</h3>
                     {touched.password && errors.password && (
                         <p>{errors.password}</p>
                     )}
                     <Field
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="Enter password"
                         value={values.password}
                         autoComplete="password"
+                        style={{
+                            width:'300px',
+                            borderStyle:'none',
+                            borderRadius:'10px',
+                            background:'rgb(251, 251, 251)',
+                            marginBottom:'30px'
+                        }}
                     />
                 </div>
-            </Stretch>
+
             <SemanticForm.Button
                 content="Login"
-                color="blue"
-                style={{ marginTop: 5 }}
+                id="button"
+                style={{ }}
             />
-            <p>No account? <a href="#">Sign up here</a></p>
+            <p><a href="#">No account? Sign up here</a></p>
+        </Stretch>
         </SemanticForm>
     );
 };
