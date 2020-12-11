@@ -12,10 +12,7 @@ import Header from '../../components/Header';
 import { ColumnContainer } from '../../globals/components';
 
 //Scenes
-import CreateProfile from './CreateProfile';
-import EditProfile from './EditProfile';
-import AllProfiles from './AllProfiles';
-import Settings from './Settings';
+
 
 const UserAccount = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -73,7 +70,7 @@ const UserAccount = ({ history }) => {
                             </Link>
                         }
                     />
-                    <Switch>
+                    {/* <Switch>
                         <Route exact path="/me" component={AllProfiles} />
                         <Route
                             path="/me/create-profile"
@@ -84,7 +81,7 @@ const UserAccount = ({ history }) => {
                             component={EditProfile}
                         />
                         <Route path="/me/settings" component={Settings} />
-                    </Switch>
+                    </Switch> */}
                 </>
             )}
         </ColumnContainer>

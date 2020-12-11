@@ -47,7 +47,7 @@ class OnboardingComplete extends Component {
                     />
                     <b>
                         {success
-                            ? 'Congratulations! Your account is setup. Now Create your prisoner profile. '
+                            ? 'Congratulations! Your account is setup. Now Create your Student profile. '
                             : error
                             ? 'Oups! '
                             : info
