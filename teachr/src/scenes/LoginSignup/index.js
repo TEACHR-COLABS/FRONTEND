@@ -22,11 +22,18 @@ const FormContainer = styled(Segment)`
 
 const LoginSignup = () => {
     return (
-        <ColumnContainer>
+        <>
+          <Header
+                justify="center"
+                size="3em"
+            />
+            <LogIn /></>
+        /*<ColumnContainer>
             <Header
                 justify="center"
                 size="3em"
             />
+            <LogIn />
             <ColumnContainer align="center">
                 <FormContainer basic>
                     <Grid columns={2} relaxed="very" stackable>
@@ -41,7 +48,7 @@ const LoginSignup = () => {
                     <Divider vertical>Or</Divider>
                 </FormContainer>
             </ColumnContainer>
-        </ColumnContainer>
+        </ColumnContainer>*/
     );
 };
 
