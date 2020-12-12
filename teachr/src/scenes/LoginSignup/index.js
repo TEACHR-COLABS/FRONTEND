@@ -14,6 +14,7 @@ import Header from "../../components/Header"
 import { ColumnContainer } from '../../globals/components';
 // import { small } from '../../globals/styles';
 // import { flexBoxMixin } from '../../globals/components';
+import {Center} from '../../globals/components.js';
 
 const FormContainer = styled(Segment)`
     width: 800px;
@@ -22,12 +23,9 @@ const FormContainer = styled(Segment)`
 
 const LoginSignup = () => {
     return (
-        <>
-          <Header
-                justify="center"
-                size="3em"
-            />
-            <LogIn /></>
+        <Center>
+            <LogIn />
+        </Center>
         /*<ColumnContainer>
             <Header
                 justify="center"

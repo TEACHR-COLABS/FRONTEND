@@ -27,3 +27,18 @@ export const RowContainer = styled.div.attrs(props => ({
     padding: ${props => props.padding};
     ${props => flexBoxMixin('row', props.justify, props.align)}
 `;
+
+export const Center = styled.div `
+    font-family: 'Montserrat', sans-serif;
+    color: #fdfdfd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: #83C5BE no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+`;
