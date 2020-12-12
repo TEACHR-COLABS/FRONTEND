@@ -23,21 +23,21 @@ export default function reducer(state, action) {
         case 'logout_user':
             window.localStorage.removeItem('user');
             return {};
-        case 'update_classes':
-            if (state.classes) {
+        case 'update_students':
+            if (state.students) {
                 return {
                     ...state,
-                    classes: [...state.classes, action.payload],
+                    students: [...state.students, action.payload],
                 };
             } else {
                 return {
                     ...state,
-                    classes: [...action.payload],
+                    students: [...action.payload],
                 };
             }
 
-        case 'edit_classes':
-            let updatedClasses = state.classes.map(c => {
+        case 'edit_students':
+            let updatedstudents = state.students.map(c => {
                 if (c.id === action.payload.id) {
                     return action.payload;
                 }
@@ -46,32 +46,32 @@ export default function reducer(state, action) {
 
             return {
                 ...state,
-                classes: updatedClasses,
+                students: updatedstudents,
             };
-        case 'set_user_classes':
+        case 'set_user_students':
             return {
                 ...state,
-                classes: action.payload,
+                students: action.payload,
             };
         case 'delete_user':
             console.log('Inside case delete');
             axiosWithAuth()
-                .delete(`/classes/${action.payload}`)
+                .delete(`/students/${action.payload}`)
                 .then(res => console.log(res))
                 .catch(err => console.log(err));
 
-            let classes = state.classes.filter(c => {
+            let students = state.students.filter(c => {
                 console.log(action.payload);
                 console.log(c);
 
                 return c.id !== action.payload;
             });
 
-            console.log(classes);
+            console.log(students);
 
             return {
                 ...state,
-                classes: classes,
+                students: students,
             };
         case 'set_preview':
             return {

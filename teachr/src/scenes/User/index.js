@@ -26,7 +26,7 @@ const UserAccount = ({ history }) => {
     useEffect(() => {
         setIsLoading(true);
         if (!classes || classes.length === 0) {
-            let url = `http://localhost:3000/api/users/${user.id}`;
+            let url = `http://localhost:8000/api/teachers/${user.id}`;
             axios
                 .get(url)
                 .then(res => {
