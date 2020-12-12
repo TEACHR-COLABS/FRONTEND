@@ -8,12 +8,13 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { ComponentWithState, withState } from '../../state';
 
+
 const Stretch = styled.div`
     display: flex;
     flex-direction: column;
     align-items:center;
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
     top:0;
     background:#83C5BE;
     color:#fbfbfb;
@@ -53,11 +54,18 @@ const Stretch = styled.div`
         height: 40px;
         width:230px;
         margin: 10px 0 0px 0;
+        box-shadow: 0px 4px 4px 0px rgba(0,0,0, 0.25);
     }
 
     .button:hover{
         background: #b06225;
         color:#fbfbfb;
+    }
+
+    img{
+        height:153px;
+        width:153px;
+        margin-bottom:20px;
     }
 `;
 
@@ -85,6 +93,7 @@ const Login = ({
             )}
             {errors.global && <p>{errors.global}</p>}
             <Stretch>
+                <img src={process.env.PUBLIC_URL + "/logoteachr.png"}/>
                 <div>
                         <h3>Email</h3>
                     {touched.email && errors.email && <p>{errors.email}</p>}
@@ -125,7 +134,7 @@ const Login = ({
                 </div>
 
             <SemanticForm.Button
-                content="Login"
+                content="Sign in"
                 id="button"
                 style={{ }}
             />
