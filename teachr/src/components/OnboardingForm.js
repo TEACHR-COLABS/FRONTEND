@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { axiosWithAuth } from '../hooks';
@@ -81,7 +82,9 @@ const App = ({
     );
 };
 
+
 const OnboardingForm = withFormik({
+
     mapPropsToValues({ selectOption, selectGroup }) {
         return {
             selectGroup: selectGroup || '',
@@ -94,6 +97,25 @@ const OnboardingForm = withFormik({
         selectGroup: Yup.string().required('Assessment group is required'),
     }),
 
+    // handleSubmit(values, { props, setEffect }) {
+    //     console.log('Submitting Onboarding Form');
+    //     console.log(props);
+    //     axiosWithAuth()
+    //         .put('/profile', {
+    //             assessmentType: values.selectOption,
+    //             assessmentGroup: values.selectGroup
+    //         })
+    //         .then(response => {
+    //             props.dispatch({
+    //                 type: 'update_user',
+    //                 payload: response.data,
+    //             });
+    //             props.history.push('/me');
+    //         })
+    //         .catch(error => {
+    //             console.log(error.response);
+    //         });
+    // },
     handleSubmit(values, { props, setEffect }) {
         console.log('Submitting Onboarding Form');
         console.log(props);
@@ -103,11 +125,14 @@ const OnboardingForm = withFormik({
                 assessmentGroup: values.selectGroup
             })
             .then(response => {
+                console.log(props.history);
+                
                 props.dispatch({
                     type: 'update_user',
                     payload: response.data,
                 });
-                props.history.push('/me');
+                props.history.push('/mark');
+                
             })
             .catch(error => {
                 console.log(error.response);

@@ -7,6 +7,7 @@ import { useStateValue } from '../../state';
 //Components
 import { Route, Switch, Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import MarkingPage from "../MarkingPage/index"
 
 //Custom Components
 import { ColumnContainer } from '../../globals/components';
@@ -70,9 +71,9 @@ const UserAccount = ({ history }) => {
                             </Link>
                         }
                     />
-                    {/* <Switch>
-                        <Route exact path="/me" component={AllProfiles} />
-                        <Route
+                    <Switch>
+                        <Route exact path="/me" component={MarkingPage} />
+                        {/* <Route
                             path="/me/create-profile"
                             component={CreateProfile}
                         />
@@ -80,8 +81,8 @@ const UserAccount = ({ history }) => {
                             path="/me/edit-profile"
                             component={EditProfile}
                         />
-                        <Route path="/me/settings" component={Settings} />
-                    </Switch> */}
+                        <Route path="/me/settings" component={Settings} /> */}
+                    </Switch>
                 </>
             )}
         </ColumnContainer>
