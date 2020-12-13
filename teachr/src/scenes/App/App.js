@@ -20,6 +20,7 @@ import { useStateValue } from "../../state";
 import UserAccount from '../User';
 import LoginSignup from '../LoginSignup';
 import Onboarding from '../Onboarding';
+import MarkingPage from "../MarkingPage"
 
 const App = () => {
   const [{ user }, dispatch] = useStateValue();
@@ -52,6 +53,11 @@ const App = () => {
                             exact
                             path="/onboarding"
                             component={Onboarding}
+                        />
+                        <Route
+                            exact
+                            path="/mark"
+                            component={MarkingPage}
                         />
                     </Switch>
                 )}

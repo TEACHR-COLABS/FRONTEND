@@ -8,7 +8,7 @@ export const axiosWithAuth = () => {
     console.log('got to axiosWithAuth');
     return axios.create({
         // baseURL: `https://teachr-back-end.herokuapp.com/api/users/${id}`,
-        baseURL: `http://localhost:8000/api/users/${id}`,
+        baseURL: `http://localhost:8000/api/teachers/${id}`,
         headers: {
             Authorization: token,
         },

@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './state';
 import reducer from './reducers';
 
-const initialState = { user: {}, classes: [] };
+const initialState = { user: {}, students: [] };
 
 ReactDOM.render(
   <StateProvider initialState={initialState} reducer={reducer}>
