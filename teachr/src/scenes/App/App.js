@@ -20,6 +20,7 @@ import { useStateValue } from "../../state";
 import UserAccount from '../User';
 import LoginSignup from '../LoginSignup';
 import Onboarding from '../Onboarding';
+import MarkingPage from '../MarkingPage';
 
 const App = () => {
   const [{ user }, dispatch] = useStateValue();
@@ -40,7 +41,8 @@ const App = () => {
         {loading ? (
                     <h1>Loading</h1>
                 ) : (
-                    <Switch>
+                    <MarkingPage />
+                    /*<Switch>
                       <Route exact path="/" component={LoginSignup} />
                         <PrivateRoute
                             path="/me"
@@ -53,7 +55,7 @@ const App = () => {
                             path="/onboarding"
                             component={Onboarding}
                         />
-                    </Switch>
+                    </Switch>*/
                 )}
     </BrowserRouter>
   );
