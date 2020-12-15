@@ -41,8 +41,8 @@ const App = () => {
         {loading ? (
                     <h1>Loading</h1>
                 ) : (
-                    <MarkingPage />
-                    /*<Switch>
+
+                    <Switch>
                       <Route exact path="/" component={LoginSignup} />
                         <PrivateRoute
                             path="/me"
@@ -55,7 +55,7 @@ const App = () => {
                             path="/onboarding"
                             component={Onboarding}
                         />
-                    </Switch>*/
+                    </Switch>
                 )}
     </BrowserRouter>
   );
