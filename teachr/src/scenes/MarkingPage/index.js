@@ -2,70 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 //Custom Components
 import Header from '../../components/Header';
-import styled from "styled-components";
+//import styled from "styled-components";
+import {Roundtable} from '../../components/InitialVariables';
 
 import {AppPage, NameList, Grades, Checklist, Input, Notes, StudentCircle} from '../../globals/components.js'
 
-
 function MarkingPage() {
-const Roundtable = JSON.parse(localStorage.getItem("roundtable")) || [
-    {
-      listItem: "Made a comment",
-      score: 0,
-      category: "",
-      order: 0,
-    },
-    {
-      listItem: "Referenced text",
-      score: 0,
-      category: "",
-      order: 1,
-    },
-    {
-      listItem: "New interpretation",
-      score: 0,
-      category: "",
-      order: 2,
-    },
-    {
-      listItem: "Made connections",
-      score: 0,
-      category: "",
-      order: 3,
-    },
-    {
-      listItem: "Used evidence",
-      score: 0,
-      category: "",
-      order: 4,
-    },
-    {
-      listItem: "Respectful",
-      score: 0,
-      category: "",
-      order: 5,
-    },
-    {
-      listItem: "Questions",
-      score: 0,
-      category: "",
-      order: 6,
-    },
-    {
-      listItem: "Spoke clearly",
-      score: 0,
-      category: "",
-      order: 7,
-    },
-    {
-      listItem: "Off topic",
-      score: 0,
-      category: "",
-      order: 8,
-    },
-  ];
+const Roundtables = Roundtable;
 
-const [myMarks, setMarks] = useState (Roundtable);
+const [myMarks, setMarks] = useState (Roundtables);
   useEffect (() =>{
     localStorage.setItem("roundtable", JSON.stringify(myMarks));
   }, [myMarks]);
@@ -104,7 +49,7 @@ function handleScoreChange(index, value){
           <h1>Select a student to Begin Marking</h1>
           <NameList>
             {studs.map((ele) => (
-              <div class="studentBox"><StudentCircle></StudentCircle>
+              <div class="studentBox" key={ele.index}><StudentCircle></StudentCircle>
               <a> {ele.name} </a></div>
             ))}
           </NameList>
@@ -114,7 +59,7 @@ function handleScoreChange(index, value){
           <Checklist>
             {myMarks.map((item, index)=> (
                 <Input key={index}>
-                  <div class="score"><p>{item.score}</p></div>
+                  <div class="score" key={index}><p key={index}>{item.score}</p></div>
                   <button class="checkup" onClick={() => handleScoreChange(index, item.score + 1)}>+ {item.listItem}</button>
                   <button class="subtract" onClick={() => handleScoreChange(index, item.score - 1)}>-</button>
                 </Input>

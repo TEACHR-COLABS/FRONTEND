@@ -22,7 +22,7 @@ const Image = styled.img`
 	padding-top: 10px;
 `
 
-const Header = () => (
+const Header = ({assessmentGrade}) => (
     <RowContainer align="center">
       <HeaderStyling><Image src={process.env.PUBLIC_URL + "/logoteachr.png"} /></HeaderStyling>
     </RowContainer>
