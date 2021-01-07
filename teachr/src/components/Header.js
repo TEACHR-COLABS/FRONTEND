@@ -12,18 +12,18 @@ const HeaderStyling = styled.p`
   padding: 20px;
   margin-bottom: 5vh;
   color: white;
-  width: 100%;
+  width: 20%;
   text-align: left;
 `
 const Image = styled.img`
 
-width: 75px;
-height: 75px;
-padding-left: 10px;
-padding-top: 10px;
+	width: 75px;
+	height: 75px;
+	padding-left: 10px;
+	padding-top: 10px;
 `
 
-const Header = () => (
+const Header = ({assessmentGrade}) => (
     <RowContainer align="center">
       <HeaderStyling><Image src={process.env.PUBLIC_URL + "/logoteachr.png"} /></HeaderStyling>
     </RowContainer>
