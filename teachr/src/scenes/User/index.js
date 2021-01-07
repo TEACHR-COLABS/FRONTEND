@@ -7,15 +7,13 @@ import { useStateValue } from '../../state';
 //Components
 import { Route, Switch, Link } from 'react-router-dom';
 import Header from '../../components/Header';
+import MarkingPage from "../MarkingPage/index"
 
 //Custom Components
 import { ColumnContainer } from '../../globals/components';
 
 //Scenes
-import CreateProfile from './CreateProfile';
-import EditProfile from './EditProfile';
-import AllProfiles from './AllProfiles';
-import Settings from './Settings';
+
 
 const UserAccount = ({ history }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +27,7 @@ const UserAccount = ({ history }) => {
     useEffect(() => {
         setIsLoading(true);
         if (!classes || classes.length === 0) {
-            let url = `http://localhost:3000/api/users/${user.id}`;
+            let url = `http://localhost:8000/api/teachers/${user.id}`;
             axios
                 .get(url)
                 .then(res => {
@@ -74,8 +72,8 @@ const UserAccount = ({ history }) => {
                         }
                     />
                     <Switch>
-                        <Route exact path="/me" component={AllProfiles} />
-                        <Route
+                        <Route exact path="/me" component={MarkingPage} />
+                        {/* <Route
                             path="/me/create-profile"
                             component={CreateProfile}
                         />
@@ -83,7 +81,7 @@ const UserAccount = ({ history }) => {
                             path="/me/edit-profile"
                             component={EditProfile}
                         />
-                        <Route path="/me/settings" component={Settings} />
+                        <Route path="/me/settings" component={Settings} /> */}
                     </Switch>
                 </>
             )}

@@ -7,7 +7,7 @@ import { Segment } from 'semantic-ui-react';
 
 //Custom Components
 import OnboardingForm from '../../components/OnboardingForm';
-import Header from '../../components/OnboardingForm';
+// import Header from '../../components/OnboardingForm';
 
 //Styled Components
 import { ColumnContainer } from '../../globals/components';
@@ -24,11 +24,11 @@ const FormContainer = styled(Segment)`
 const Onboarding = ({ history }) => {
     return (
         <ColumnContainer align="stretch">
-            <Header
+            {/* <Header
                 justify="center"
                 title={`Welcome to Regain! \n Let's finish setup!`}
                 size="3em"
-            />
+            /> */}
             <ColumnContainer align="center">
                 <FormContainer basic>
                     <OnboardingForm />

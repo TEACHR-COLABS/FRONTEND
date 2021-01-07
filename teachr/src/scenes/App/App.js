@@ -22,6 +22,7 @@ import LoginSignup from '../LoginSignup';
 import Onboarding from '../Onboarding';
 //import MarkingPage from '../MarkingPage';
 
+
 const App = () => {
   const [{ user }, dispatch] = useStateValue();
   const [loading, setLoading] = useState(true);
@@ -56,6 +57,11 @@ const App = () => {
                             exact
                             path="/onboarding"
                             component={Onboarding}
+                        />
+                        <Route
+                            exact
+                            path="/mark"
+                            component={MarkingPage}
                         />
                     </Switch>
                 )}
